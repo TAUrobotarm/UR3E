@@ -1,0 +1,8 @@
+- git:
+    local-name: warehouse_ros
+    uri: https://github.com/ros-planning/warehouse_ros.git
+    version: jade-devel
+- git:
+    local-name: warehouse_ros_mongo
+    uri: https://github.com/ros-planning/warehouse_ros_mongo.git
+    version: jade-devel
