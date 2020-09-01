@@ -1,0 +1,141 @@
+sudo apt-get install ros-melodic-universal-robot
+
+mkdir -p ~/catkin_ws/src
+cd $HOME/catkin_ws/src
+catkin_make
+cd src
+git clone -b melodic-devel https://github.com/ros-industrial/universal_robot.git
+cd $HOME/catkin_ws
+rosdep update
+rosdep install --rosdistro melodic --ignore-src --from-paths src
+catkin_make
+source $HOME/catkin_ws/devel/setup.bash
+
+
+cd ~/catkin_ws
+source devel/setup.bash
+roslaunch ur_calibration calibration_correction.launch robot_ip:=132.66.199.242 target_filename:="${HOME}/my_robot_calibration.yaml"
+roslaunch ur_robot_driver ur3e_bringup.launch robot_ip:=132.66.199.242 [reverse_port:=30004] kinematics_config:=${HOME}/my_robot_calibration.yaml
+roslaunch ur3_e_moveit_config ur3_e_moveit_planning_execution.launch sim:=false limited:=true db:=true
+
+rosrun rqt_joint_trajectory_controller rqt_joint_trajectory_controller
+roslaunch ur3_e_moveit_config moveit_rviz.launch config:=true
+roslaunch ur3_e_moveit_config default_warehouse_db.launch
+
+ 
+
+
+
+roslaunch ur_gazebo ur3_e.launch
+roslaunch ur3_e_moveit_config ur3_e_moveit_planning_execution.launch sim:=false robot_ip=132.66.195.152
+roslaunch ur3_e_moveit_config moveit_rviz.launch config:=true
+____________________________________GMAIL__________________________________________
+username: roboticarmtau@gmail.com
+password: TAUroboticarm
+birhday: 19/3/93
+____________________________________GITHUB__________________________________________
+username: roboticarmtau@gmail.com
+password: T!@#a123u
+
+git remote add origin https://github.com/TAUrobotarm/UR3E
+____________________________________monoDB__________________________________________
+ps aux |grep mongod
+
+https://github.com/ros-planning/warehouse_ros_mongo/tree/melodic-devel
+
+
+
+
+rosrun mongodb_store mongodb_server.py
+
+
+https://github.com/strands-project/mongodb_store/issues/217
+https://docs.mongodb.com/manual/tutorial/install-mongodb-on-ubuntu/#install-mongodb-community-edition
+source $HOME/monodb/devel_isolated/setup.bash
+
+https://moveit.ros.org/install/source/dependencies/
+https://answers.ros.org/question/191130/error-in-catkin_ws/
+
+
+not working:
+HOSTNAME=localhost roslaunch mongodb_store mongodb_store.launch db_path:=/home/rls/catkin_ws/src/fmauch_universal_robot/ur3_e_moveit_config/default_warehouse_mongo_db db_port:=33829
+roslaunch ur3_e_moveit_config warehouse.launch moveit_warehouse_database_path $HOME/catkin_ws/moveit.db 
+HOSTNAME=rls-desktop roslaunch mongodb_store mongodb_store.launch db_path:=$HOME/catkin_ws db_port:=27017
+
+___________________________________CONTROLLERS____________________________________
+
+to get list of controllers -
+rosservice call /controller_manager/list_controllers {} 
+modify controller-
+/scaled_pos_traj_controller in src\fmauch_universal_robot\ur3_e_moveit_config\config\controllers.yaml 
+
+
+
+____________________________________BUG FIXES____________________________________
+https://github.com/ros-industrial/universal_robot/issues/413
+
+https://moveit.ros.org/install/source/dependencies/
+
+http://mongocxx.org/mongocxx-v3/installation/
+https://moveit.ros.org/install/source/dependencies/
+________________________________
+if
+"[ERROR] [1593877354.994599757]: Could not find parameter for database plugin name"
+then in warehouse_settings.launch.xml
+<launch>
+  <!-- Set the parameters for the warehouse and run the mongodb server. -->
+
+  <!-- The default DB port for moveit (not default MongoDB port to avoid potential conflicts) -->  
+  <!-- <arg name="moveit_warehouse_port" default="33829" />  -->
+  
+  
+  <arg name="moveit_warehouse_port" default="62345" /> 
+  <!-- The default DB host for moveit -->
+  <arg name="moveit_warehouse_host" default="localhost" /> 
+  
+  <!-- Set parameters for the warehouse -->
+  <param name="warehouse_port" value="$(arg moveit_warehouse_port)"/>
+  <param name="warehouse_host" value="$(arg moveit_warehouse_host)"/>
+  <param name="warehouse_plugin" value="warehouse_ros_mongo::MongoDatabaseConnection" />
+  <param name="warehouse_exec" value="mongod" />
+
+</launch>
+________________________________
+
+
+udi@taux.tau.ac.il
+036409446 udi
+036408958 valri
+036407958 dotan
+
+
+054-2287671 -inbar ben david 
+simlab- Volfson floor 4
+
+___________________________________KERNEL INSTALLATION_________________________________________________
+
+mkdir -p ${HOME}/rt_kernel_build
+cd ${HOME}/rt_kernel_build
+
+wget https://cdn.kernel.org/pub/linux/kernel/projects/rt/4.19/patch-4.19.124-rt53.patch.xz
+wget https://cdn.kernel.org/pub/linux/kernel/projects/rt/4.19/patch-4.19.124-rt53.patch.sign
+wget https://www.kernel.org/pub/linux/kernel/v4.x/linux-4.19.124.tar.xz
+wget https://www.kernel.org/pub/linux/kernel/v4.x/linux-4.19.124.tar.sign 
+xz -dk patch-4.19.124-rt53.patch.xz
+xz -d linux-4.19.124.tar.xz
+
+
+tar xf linux-4.19.124.tar
+cd linux-4.19.124
+xzcat ../patch-4.19.124-rt53.patch.xz | patch -p1 
+
+make oldconfig
+
+make -j `getconf _NPROCESSORS_ONLN` deb-pkg
+
+sudo apt install ../linux-headers-4.19.124-rt53_*.deb ../linux-image-4.19.124-rt53_*.deb
+
+sudo groupadd realtime
+sudo usermod -aG realtime $(whoami)
+
+sudo sed -i 's/^GRUB_DEFAULT=.*/GRUB_DEFAULT="Advanced options for Ubuntu>Ubuntu, with Linux4.19.124-rt53"/' /etc/default/grub
