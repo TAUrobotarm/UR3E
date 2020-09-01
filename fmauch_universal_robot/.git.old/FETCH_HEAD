@@ -1,0 +1,25 @@
+3ebf8070ad0869c264fc3df9185fe1865773b2b4		branch 'calibration_devel' of https://github.com/fmauch/universal_robot
+05d5e8ca3c3782025a9f186475f4f7b8a1f45f82	not-for-merge	branch 'add_description_view_files' of https://github.com/fmauch/universal_robot
+96de234567b90b2efa999cd091d6dc8624c9f87e	not-for-merge	branch 'add_speed_slider_service' of https://github.com/fmauch/universal_robot
+e6d566e3a8490a7ba12d2b74fce9198ee6044561	not-for-merge	branch 'add_support_level_badge' of https://github.com/fmauch/universal_robot
+c2c3aee43ec554d9645103334050e391e063d2b2	not-for-merge	branch 'analog_domain' of https://github.com/fmauch/universal_robot
+5d72bdd538e4faca1c1e8ddf837b6b35e4459aef	not-for-merge	branch 'calibration' of https://github.com/fmauch/universal_robot
+cea1db938ebbdf13b2ab86f1e1996863e099881c	not-for-merge	branch 'calibration_with_common' of https://github.com/fmauch/universal_robot
+0d2ec11e2ac4a55317ffe427e16c1a949a1a4bee	not-for-merge	branch 'effort_controller' of https://github.com/fmauch/universal_robot
+2b4e82ede46b4a1ba809a63d1bf2188d26ed49e0	not-for-merge	branch 'fix_ur3' of https://github.com/fmauch/universal_robot
+bd1fce5b225aecc4862e824b674eebb4c40be255	not-for-merge	branch 'groovy-devel' of https://github.com/fmauch/universal_robot
+c637563121e463ddaaf6ac3266c2ffdf3ad10ac1	not-for-merge	branch 'hydro' of https://github.com/fmauch/universal_robot
+d08141d5919467e2550bc24ab64779befc66e411	not-for-merge	branch 'hydro-devel' of https://github.com/fmauch/universal_robot
+1252c11fa484a75b509402094793e28a315a2e25	not-for-merge	branch 'hydro-devel-c-api' of https://github.com/fmauch/universal_robot
+017ca5ceb720d0e606bf5332bf51080f5d743d54	not-for-merge	branch 'indigo' of https://github.com/fmauch/universal_robot
+830a7b480063d66b22d939c42a0c6c08901713e6	not-for-merge	branch 'indigo-devel' of https://github.com/fmauch/universal_robot
+62011b0d353841c0c219d862c359c540a4bc6aee	not-for-merge	branch 'inertia' of https://github.com/fmauch/universal_robot
+61bf26e69bba7e0b9838bf14df1cb7c088440517	not-for-merge	branch 'inertia_from_ur' of https://github.com/fmauch/universal_robot
+16868be4fed9791b1e9584b5cd66432bd3cb0251	not-for-merge	branch 'kinetic' of https://github.com/fmauch/universal_robot
+c5a65a5d4dc9a5d53d6db06a3542464db3b34885	not-for-merge	branch 'kinetic-devel' of https://github.com/fmauch/universal_robot
+9cbb300146e93d4825da79b3d09952345e8cde63	not-for-merge	branch 'migrate_package_xml' of https://github.com/fmauch/universal_robot
+fccfc4f4bee2fbd668c552c56533856ddba0585e	not-for-merge	branch 'set_payload' of https://github.com/fmauch/universal_robot
+b0e1af75724cbcf4c34cdbadafcc91c7b489a64e	not-for-merge	branch 'swri_internal_mods' of https://github.com/fmauch/universal_robot
+9eb9604984b4b14f1986b7bb753dc0e151e412e0	not-for-merge	branch 'ur16e' of https://github.com/fmauch/universal_robot
+908a028947c8389e920c4dc69f8eede87aee0e08	not-for-merge	branch 'ur_description_args' of https://github.com/fmauch/universal_robot
+f9aa377607550430816dc8ed6063a9e36c276716	not-for-merge	branch 'ur_description_modification' of https://github.com/fmauch/universal_robot

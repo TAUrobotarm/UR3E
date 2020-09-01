@@ -1,0 +1,8 @@
+# pack-refs with: peeled fully-peeled sorted 
+baeff93eb67583c0b6244945a882d20efdccb989 refs/remotes/origin/gh-pages
+6dd72db97d3f044695ff1263bf2fb11e2d41fd0f refs/remotes/origin/indigo-devel
+4e25f22b121384cad89172048a25f290c2501307 refs/remotes/origin/kinetic-devel
+2ebb32edd2160dd9975f00c410b2a8b2542e0ec4 refs/remotes/origin/master
+8f000ae785b70e678f4d88d8bc71ce1e9d7cd4c4 refs/remotes/origin/melodic-devel
+ba7c27d893ed08e44e7a207f209978ae756c8829 refs/remotes/origin/melodic-remove-waiting-python-function
+e49e1b0ac4dcb646bcc9295bfe04261d664aa8f8 refs/remotes/origin/pr-master-rework-resources

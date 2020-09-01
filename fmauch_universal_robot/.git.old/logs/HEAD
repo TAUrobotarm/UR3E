@@ -1,0 +1,3 @@
+0000000000000000000000000000000000000000 3ebf8070ad0869c264fc3df9185fe1865773b2b4 RLS <rls@rls-desktop.(none)> 1590865134 +0300	clone: from https://github.com/fmauch/universal_robot.git
+3ebf8070ad0869c264fc3df9185fe1865773b2b4 8b64913d86745a64eaac8ee963db4afdeab786ff ur3e <ur3etau@gmail.com> 1598703575 +0300	commit: second commit
+8b64913d86745a64eaac8ee963db4afdeab786ff 4df82efd9602270866947286232a4c280f17fccb ur3e <ur3etau@gmail.com> 1598956524 +0300	commit (amend): second commit
