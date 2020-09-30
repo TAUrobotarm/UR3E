@@ -9,11 +9,12 @@ cd $HOME/catkin_ws
 rosdep update
 rosdep install --rosdistro melodic --ignore-src --from-paths src
 catkin_make
-source $HOME/catkin_ws/devel/setup.bash
+source $HOME/cleancatkin/devel/setup.bash
 
 
-cd ~/catkin_ws
+cd ~/cleancatkin
 source devel/setup.bash
+rosrun juggler MoveTraj.py 
 roslaunch ur_calibration calibration_correction.launch robot_ip:=132.66.199.242 target_filename:="${HOME}/my_robot_calibration.yaml"
 roslaunch ur_robot_driver ur3e_bringup.launch robot_ip:=132.66.199.242 [reverse_port:=30004] kinematics_config:=${HOME}/my_robot_calibration.yaml
 roslaunch ur3_e_moveit_config ur3_e_moveit_planning_execution.launch sim:=false limited:=true db:=true
@@ -23,12 +24,17 @@ roslaunch ur3_e_moveit_config moveit_rviz.launch config:=true
 roslaunch ur3_e_moveit_config default_warehouse_db.launch
 
  
+roslaunch juggler Juggler.launch robot_ip:=132.66.199.242 reverse_port:=30004 kinematics_config:=${HOME}/my_robot_calibration.yaml
 
 
 
 roslaunch ur_gazebo ur3_e.launch
 roslaunch ur3_e_moveit_config ur3_e_moveit_planning_execution.launch sim:=false robot_ip=132.66.195.152
 roslaunch ur3_e_moveit_config moveit_rviz.launch config:=true
+
+____________________________________Pycharm__________________________________________
+./pycharm-community-2020.2/bin/pycharm.sh
+
 ____________________________________GMAIL__________________________________________
 username: roboticarmtau@gmail.com
 password: TAUroboticarm
@@ -37,16 +43,13 @@ ____________________________________GITHUB______________________________________
 username: roboticarmtau@gmail.com
 password: T!@#a123u
 
+
+git config --global user.password "T!@#a123u"
+
 git remote add origin https://github.com/TAUrobotarm/UR3E
-____________________________________monoDB__________________________________________
-ps aux |grep mongod
 
-https://github.com/ros-planning/warehouse_ros_mongo/tree/melodic-devel
-
-
-
-
-rosrun mongodb_store mongodb_server.py
+____________________________________presentation__________________________________________
+/home/rls/cleancatkin/src/ros_controllers-melodic-devel/rqt_joint_trajectory_controller/src/rqt_joint_trajectory_controller/joint_trajectory_controller.py
 
 
 https://github.com/strands-project/mongodb_store/issues/217
